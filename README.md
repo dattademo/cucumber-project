@@ -9,7 +9,7 @@ Developed with:
 
   1. Clone this project
 ```sh
-git clone https://github.com/dattademo/cucumber-proyect.git
+git clone https://github.com/dattademo/cucumber-project.git
 ```
   ---------------------------
   	Running test from Console
