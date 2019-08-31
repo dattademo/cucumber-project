@@ -4,6 +4,7 @@ Developed with:
   - Javascript
   - Protractor
   - Cucumber
+  - Chai
 
 # How to run test?
 
