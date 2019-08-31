@@ -1,0 +1,21 @@
+{
+  "name": "cucumber-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "protractor conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "cucumber": "^5.1.0",
+    "cucumber-html-reporter": "^5.0.0",
+    "protractor-cucumber-framework": "^6.1.3"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  }
+}
