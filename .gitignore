@@ -1,5 +1,6 @@
 node_modules
-report/*.*
-report/screenshots/*
+report/screenshots/*.png
 debug.log
 output.txt
+report/*.html
+report/*.json
