@@ -1,7 +1,7 @@
 #Login.feature
+
 Feature: Wikipedia Login Testing
-	I should be able to go to Wikipedia loging page
-	and login correctly
+	I should be able to go to Wikipedia loging page	and login correctly
 
 	Scenario: Success login
 		Given I go to wikipedia home page
@@ -10,4 +10,3 @@ Feature: Wikipedia Login Testing
 		When I set password: "devTest1234"
 		When I click on login button
 		Then I verify that User Button text contains: "TestUserForJS"
-		

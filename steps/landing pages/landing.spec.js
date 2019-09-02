@@ -1,15 +1,6 @@
-var chai = require('chai');
-var chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
-var expect = chai.expect;
+// these are the existing steps for Landing page
 
-let homePage = require('../../pages/Home.po.js');
 let landingPage = require('../../pages/Landing.po.js');
-
-When(/^I click on (.*) link button$/, async function (page) {
-  await homePage.clickOnPortalElement(page);
-  await landingPage.init();
-});
 
 Then(/^I see (.*) landing page$/, async function (titleText) {
   //  await  expect(landingPage.getPageMainTitle().isPresent()).to.eventually.be.true;

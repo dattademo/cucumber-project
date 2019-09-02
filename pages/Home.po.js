@@ -1,3 +1,5 @@
+// this is the page object for the HOme Page
+
 let loginButton;
 let userButton;
 let mainPortElement;

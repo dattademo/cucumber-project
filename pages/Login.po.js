@@ -1,3 +1,5 @@
+// this is the page object for the Login Page
+
 var userInput;
 let passInput;
 let loginButton;

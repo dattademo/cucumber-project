@@ -1,3 +1,5 @@
+// this is the page object for the Landing Page
+
 var titleElement;
 var logoElement;
 var navigationElement;
@@ -10,7 +12,7 @@ module.exports = {
 		navigationElement = element(by.id("p-navigation"));
 		searchElement = element(by.id("simpleSearch"));
 	},
-	
+
 	getPageMainTitle: () => {
 		return titleElement;
 	},
@@ -26,5 +28,5 @@ module.exports = {
 	getSearchElement: () => {
 		return searchElement;
 	},
-	
+
 }

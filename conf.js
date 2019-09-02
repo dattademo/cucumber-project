@@ -2,7 +2,7 @@
 const envFile = require("./config/env")
 
 exports.config = {
-	directConnect: true,
+	directConnect: true, // avoid using a dedicated console terminal to start the webdriver
 	framework: 'custom',
 	// path relative to the current config file
 	frameworkPath: require.resolve('protractor-cucumber-framework'),
@@ -21,7 +21,7 @@ exports.config = {
 	specs: [
 		'./features/*/*.feature'
 	],
-
+	// these are the available suites to run, i.e.: protractor conf.js --suite=login
 	suites: {
 		completeRegression: './features/*/*.feature',
 		login: './features/login/*.feature',
@@ -37,15 +37,24 @@ exports.config = {
 	},
 
 	onPrepare: function () {
+		// browser settings
 		browser.params.baseURL = eval("envFile." + browser.params.env + "Url");
 		browser.ignoreSynchronization = true;
 		browser.driver.manage().window().maximize();
+
+		// cucumber's keywords are declared globally so all the spec files can use them directly 
 		const { After, Given, Then, When, Before } = require('cucumber');
 		global.Given = Given;
 		global.When = When;
 		global.Then = Then;
 		global.Before = Before;
 		global.After = After;
+
+		// chai expect is declared globally
+		var chai = require('chai');
+		var chaiAsPromised = require('chai-as-promised');
+		chai.use(chaiAsPromised);
+		global.expect = chai.expect;
 	},
 
 	onComplete: function () {
@@ -55,7 +64,7 @@ exports.config = {
 			var broserName = caps.get('browserName').toUpperCase();
 			var broserVersion = caps.get('version');
 			var envName = browser.params.env.toUpperCase();
-			
+
 			// these are the options for the html report created after the suite is finished
 			// for more information on this go to: https://www.npmjs.com/package/cucumber-html-reporter
 			var options = {
@@ -66,7 +75,7 @@ exports.config = {
 				theme: 'bootstrap',
 				jsonFile: './report/results.json',
 				output: './report/cucumber_report.html',
-				name : "Wikipedia Test Suite", // this is the report title
+				name: "Wikipedia Test Suite", // this is the report title
 				brandTitle: "Smoke Test", // this is the report brand title
 				columnLayout: 1,
 				metadata: {
